@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-// import Person from './Person/person.js'
-import Person2 from "./Person2/Person2.js";
+import Listitem from "./Listitem/Listitem.js";
 
 function App() {
   const [state, setState] = useState({
@@ -9,11 +8,34 @@ function App() {
     currentItem: { text: "", key: "" },
   });
 
+  const addItem = (e) => {
+    const newItem = state.currentItem.text;
+    if (newItem != "") {
+      setState({
+        items: [...state.items, newItem],
+        currentItem: {
+          text: "",
+          key: "",
+        },
+      });
+    }
+  };
+
+  const handleInput = (e) => {
+    setState({
+      items: [],
+      currentItem: { text: e.target.value, key: Date.now() },
+    });
+  };
+
   return (
-    <form onSubmit={addItem}>
-      <input type="text" onChange={handleInput} />
-      <button type="submit"></button>
-    </form>
+    <div className="App">
+      <form onSubmit={addItem}>
+        <input type="text" onChange={handleInput} />
+        <button type="submit">Add</button>
+      </form>
+      <Listitem items={state.items} />
+    </div>
   );
 }
 
