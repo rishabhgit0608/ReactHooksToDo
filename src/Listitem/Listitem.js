@@ -5,7 +5,7 @@ const Listitem = (props) => {
   console.log(items);
   const ListItem = items.map((item) => {
     return (
-      <div className="listitem" key="item.key">
+      <div className="listitem" key={item.key}>
         <p>{item.text}</p>
       </div>
     );

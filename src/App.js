@@ -9,6 +9,7 @@ function App() {
   });
 
   const addItem = (e) => {
+    e.preventDefault();
     const newItem = state.currentItem.text;
     if (newItem != "") {
       setState({
@@ -23,7 +24,7 @@ function App() {
 
   const handleInput = (e) => {
     setState({
-      items: [],
+      items: [...state.items],
       currentItem: { text: e.target.value, key: Date.now() },
     });
   };
