@@ -1,0 +1,14 @@
+.allList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.list {
+  background-color: yellowgreen;
+  color: white;
+  border: 1px solid red;
+  text-align: center;
+  width: 70%;
+  margin-top: 10px;
+}
